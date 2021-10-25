@@ -194,11 +194,12 @@ namespace laba3GUI
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 44)
             {
-                if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 44)
-                    e.Handled = true;
+                e.Handled = true;
                 label1.Text = "Вводите только числа \n" +
-                                 "Используйте запятую для разделения";
+                             "Используйте запятую для разделения";
             }
             if (e.KeyChar == (char)Keys.Enter)
             {
@@ -208,17 +209,22 @@ namespace laba3GUI
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            {
-                if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 44)
-                {
-                    e.Handled = true;
-                }
 
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 44)
+            {
+                e.Handled = true;
+                label1.Text = "Вводите только числа \n" +
+                             "Используйте запятую для разделения";
             }
             if (e.KeyChar == (char)Keys.Enter)
             {
-                textBox1.Focus();
+                textBox2.Focus();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Calculate();
         }
     }
 }
